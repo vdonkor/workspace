@@ -40,14 +40,31 @@ class Scrapper:
             }
 
     def check_kinesis_usage(self):
+        streams = []
         client = self.session.client("kinesis", region_name=self.region)
         paginator = client.get_paginator("list_streams")
         page_iter = paginator.paginate()
         for page in page_iter:
-            print(page)
+            streams.extend(page["StreamNames"])
+        return {
+                "account_id": self.account_id,
+                "resource": "kinesis",
+                "count": len(streams),
+                "streams": streams
+            }
+
+    def check_firehose_usage(self):
+        client = self.session.client("firehose", region_name=self.region)
+        resp = client.list_delivery_streams()
+        return {
+                "account_id": self.account_id,
+                "resource": "firehose",
+                "count": len(resp["DeliveryStreamNames"]),
+                "dilivery_streams": resp["DeliveryStreamNames"]
+            }
 
 
 scrapper = Scrapper(ses)
 
-scrapper.check_kinesis_usage()
-# print(resource)
+stream = scrapper.check_firehose_usage()
+print(stream)
