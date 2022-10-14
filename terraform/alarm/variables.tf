@@ -119,8 +119,3 @@ variable "slack_endpoint_url" {
   description = "slack endpoint url"
   default = ""
 }
-variable "region" {
-  default = "us-east-1"
-  description = "aws region"
-  type = string
-}
