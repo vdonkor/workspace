@@ -1,6 +1,6 @@
 module "alarm" {
   source = "./alarm"
-  cloudwatch_log_group_name = "sample/log/name"
+  cloudwatch_log_group_name = "/ecs/bento/dev/logs"
   slack_endpoint_url = "slack-endpoint-url"
   sns_topic_name  = "sns-topic-name"
   lambda_function_name = "lambda-function-name"

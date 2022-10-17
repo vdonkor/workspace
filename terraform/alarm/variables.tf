@@ -58,7 +58,7 @@ variable "threshold" {
   default     = 3
 }
 
-variable "" {
+variable "period" {
   description = "the period in seconds over which the specified statistic is applied."
   type        = string
   default     = "60"
