@@ -1,7 +1,6 @@
 variable "cloudwatch_log_group_name" {
   description = "cloudwatch log group name"
   type = string
-  default = "/ecs/bento/local/logs"
 }
 
 variable "metric_filter_name" {
@@ -13,7 +12,7 @@ variable "metric_filter_name" {
 variable "metric_filter_pattern" {
   description = "pattern to match"
   type = string
-  default = "ERROR"
+  default = "error"
 }
 variable "metric_transformation_name" {
   description = "name cloudwatch metric to store our log events"
