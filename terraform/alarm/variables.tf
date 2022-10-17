@@ -6,7 +6,7 @@ variable "cloudwatch_log_group_name" {
 variable "metric_filter_name" {
   description = "name of the this metric filter"
   type = string
-  default = "cloud-inventory-filter"
+  default = "cloudwatch-metric-filter-name"
 }
 
 variable "metric_filter_pattern" {
@@ -58,7 +58,7 @@ variable "threshold" {
   default     = 3
 }
 
-variable "period" {
+variable "" {
   description = "the period in seconds over which the specified statistic is applied."
   type        = string
   default     = "60"
@@ -96,7 +96,7 @@ variable "comparison_operator" {
 variable "lambda_role_name" {
   description = "name of the lambda role"
   type        = string
-  default     = "cloud-inventory-alarm-lambda-role"
+  default     = "cloudwatch-metric-alarm-lambda-role"
 }
 variable "slack_channel_name" {
   type = string
@@ -106,15 +106,14 @@ variable "slack_channel_name" {
 variable "lambda_function_name" {
   type = string
   description = "name of this lambda function"
-  default = "cloud-inventory-slack-notification"
+  default = "metric-filter-lambda"
 }
 variable "sns_topic_name" {
   type = string
   description = "sns topic name"
-  default = "cloud-inventory-lambda-invocation"
+  default = "cloudwatch-metric-filter-sns-topic"
 }
 variable "slack_endpoint_url" {
   type = string
   description = "slack endpoint url"
-  default = ""
 }
