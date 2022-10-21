@@ -29,6 +29,11 @@ variable "metric_transformation_value" {
   type        = string
   default     = "5"
 }
+variable "metric_transformation_unit" {
+  description ="metric"
+  type        = string
+  default     = "5"
+}
 variable "metric_transformation_default_value" {
   description = "default value if no pattern matched"
   type        = string
