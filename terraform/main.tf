@@ -17,4 +17,6 @@ module "alarm" {
   datapoints_to_alarm = 2
   comparison_operator = "GreaterThanOrEqualToThreshold"
   period = "60"
+  slack_bot_user_ouath_token = ""
+  slack_files_upload_endpoint_url = ""
 }
