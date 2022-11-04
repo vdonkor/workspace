@@ -28,3 +28,13 @@ resource "aws_cloudwatch_metric_alarm" "this" {
   treat_missing_data        = var.treat_missing_data
   alarm_actions             = [aws_sns_topic.this.arn]
 }
+
+#create subscription filter
+resource "aws_cloudwatch_log_subscription_filter" "this" {
+  name            =  var.cloudwatch_log_subscription_filter_name
+  role_arn        = aws_iam_role.this.arn
+  log_group_name  = data.aws_cloudwatch_log_group.this.name
+  filter_pattern  = var.metric_filter_pattern
+  destination_arn = aws_lambda_function.filter.arn
+  distribution    = "ByLogStream"
+}

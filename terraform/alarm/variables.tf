@@ -113,6 +113,11 @@ variable "lambda_function_name" {
   description = "name of this lambda function"
   default = "metric-filter-lambda"
 }
+variable "log_filter_lambda_function_name" {
+  type = string
+  description = "name of this log filter lambda function"
+  default = "data-warehouse-cloudwatch-log-filter"
+}
 variable "sns_topic_name" {
   type = string
   description = "sns topic name"
@@ -121,4 +126,17 @@ variable "sns_topic_name" {
 variable "slack_endpoint_url" {
   type = string
   description = "slack endpoint url"
+}
+variable "cloudwatch_log_subscription_filter_name" {
+  type = string
+  description = "cloudwatch log subscription filter name"
+  default = "data-warehouse-cloudwatch-log-subscription-filter"
+}
+variable "slack_files_upload_endpoint_url" {
+  type = string
+  description = "slack endpoint url for files upload"
+}
+variable "slack_bot_user_ouath_token" {
+  type = string
+  description = "slack bot user oauth token"
 }
