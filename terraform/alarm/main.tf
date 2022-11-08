@@ -38,3 +38,11 @@ resource "aws_cloudwatch_log_subscription_filter" "this" {
   destination_arn = aws_lambda_function.filter.arn
   distribution    = "ByLogStream"
 }
+
+module "lambda-python-archive" {
+  source  = "rojopolis/lambda-python-archive/aws"
+  version = "0.1.6"
+  src_dir              = "${path.module}/src/filter"
+  output_path          = "${path.module}/lambda.zip"
+  install_dependencies = true
+}
