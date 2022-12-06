@@ -1,0 +1,7 @@
+lambda_function_name = "vpc-endpoints-reports"
+athena_table_name = "daily"
+athena_database_name = "aws-ec2-db"
+lambda_role_name = "vpc-endpoints-inventory-role"
+inventory_bucket_name = "vpc-endpoints-reports"
+stack_name = "echx"
+athena_query_log_bucket = "inventory-bucket"
