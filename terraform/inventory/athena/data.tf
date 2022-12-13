@@ -1,4 +1,7 @@
 data "aws_caller_identity" "this" {}
+data "aws_caller_identity" "dest" {
+  provider = "aws.dest"
+}
 
 data "aws_iam_policy_document" "this" {
   statement {
@@ -23,7 +26,7 @@ data "aws_iam_policy_document" "s3" {
       "s3:PutObject",
       "s3:GetObjectVersion",
     ]
-    resources = ["arn:aws:s3:::${aws_s3_bucket.this.bucket}/*"]
+    resources = ["arn:aws:s3:::${aws_s3_bucket.src.bucket}/*"]
   }
   statement {
     sid = ""
@@ -32,7 +35,7 @@ data "aws_iam_policy_document" "s3" {
       "s3:ListBucket"
     ]
     resources = [
-      "arn:aws:s3:::${aws_s3_bucket.this.bucket}"
+      "arn:aws:s3:::${aws_s3_bucket.src.bucket}"
     ]
   }
   statement {

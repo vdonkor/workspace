@@ -12,7 +12,6 @@ variable "lambda_function_name" {
   type = string
   description = "name of this lambda function"
 }
-
 variable "inventory_bucket_name" {
   type = string
   description = "name of the inventory bucket"

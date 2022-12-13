@@ -3,7 +3,7 @@ resource "aws_iam_role" "this" {
   name               = var.lambda_role_name
 }
 resource "aws_iam_policy" "this" {
-  policy = data.aws_iam_policy_document.log.json
+  policy = data.aws_iam_policy_document..json
   name   = "${var.lambda_role_name}-policy"
 }
 resource "aws_iam_policy_attachment" "this" {

@@ -138,7 +138,7 @@ def process_athena_data():
     if check_request_status(execution_id=query_id, wait_time=20):
         data, next_id = get_query_data(header=fields, execution_id=query_id,
                                        max_result_per_page=1000)
-        return data,next_id
+        return data, next_id
 
 
 def get_execution_id():
