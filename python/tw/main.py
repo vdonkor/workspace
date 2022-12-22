@@ -31,4 +31,5 @@ print(json.dumps(subnets, indent=3))
 
 tw_az_ids = [subnet["AvailabilityZoneId"] for subnet in subnets if subnet["SubnetId"] in tw_details[0]["SubnetIds"]]
 unique_subnet_az_ids = set([subnet["AvailabilityZoneId"] for subnet in subnets])
+print(tw_az_ids)
 print(unique_subnet_az_ids)
