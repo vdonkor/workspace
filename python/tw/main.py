@@ -24,5 +24,5 @@ def get_subnets(vpc_id):
 
 
 tw_details = get_tw_attachment()
-subnets = get_subnets(tw_details[]["VpcId"])
+subnets = get_subnets(tw_details[0]["VpcId"])
 print(subnets)
