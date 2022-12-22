@@ -26,4 +26,8 @@ def get_subnets(vpc_id):
 
 tw_details = get_tw_attachment()
 subnets = get_subnets(tw_details[0]["VpcId"])
-print(json.dumps(subnets,indent=3))
+print(json.dumps(subnets, indent=3))
+
+
+tw_az_ids = [subnet["AvailabilityZoneId"] for subnet in subnets if subnet["SubnetId"] in tw_details["SubnetIds"]]
+print(tw_az_ids)
