@@ -1,4 +1,5 @@
 import boto3
+import json
 
 ec2 = boto3.client("ec2")
 
@@ -25,4 +26,4 @@ def get_subnets(vpc_id):
 
 tw_details = get_tw_attachment()
 subnets = get_subnets(tw_details[0]["VpcId"])
-print(subnets)
+print(json.dumps(subnets,indent=3))
